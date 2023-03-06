@@ -1,2 +1,38 @@
-<h1>Ini adalah halaman contact</h1>
-<p>Hello World!</p>
+<h1>Daftar Contact</h1>
+
+<a href="/contact/add">Tambah Data Contact</a>
+
+<% if (msg.length !== 0) { %>
+<h3><%= msg %></h3>
+<% } %>
+
+<table>
+  <thead>
+    <th>#</th>
+    <th>Nama</th>
+    <th>No HP</th>
+    <th>Aksi</th>
+  </thead>
+  <tbody>
+    <% if (contacts.length < 1) { %>
+    <tr>
+      <td colspan="4">
+        <p>Data contact belum ada :(</p>
+      </td>
+    </tr>
+    <% } %> <% contacts.forEach((contact, i) => { %>
+    <tr>
+      <td><%= (i++) + 1 %></td>
+      <td><%= contact.nama %></td>
+      <td><%= contact.nohp %></td>
+      <td>
+        <a
+          href="/contact/<%= contact.nama %>"
+          style="padding: 4px 16px; background-color: blue; color: #fff; border-radius: 8px"
+          >Detail</a
+        >
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

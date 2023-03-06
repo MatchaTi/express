@@ -1,0 +1,11 @@
+<h2>Detail Contact</h2>
+<% if (!contact) { %>
+<p>Data contact tidak ada :(</p>
+<a href="/contact">Kembali ke daftar Contacts</a> <% } else { %>
+<h3><%= contact.nama %></h3>
+<h3><%= contact.nohp %></h3>
+<p><%= contact.email %></p>
+<a href="/contact/edit/<%= contact.nama %>">Edit</a>
+<a href="/contact/delete/<%= contact.nama %>" onclick="return confirm('yakin?');">Hapus</a>
+<a href="/contact">Kembali ke daftar Contacts</a>
+<% } %>
